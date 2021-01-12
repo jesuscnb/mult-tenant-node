@@ -1,4 +1,4 @@
-# mult-tenant-node
+# multi-tenancy-node
 
 O objetivo desse projeto é simplificar a implementação de mult-tenant.
 
