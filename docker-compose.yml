@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app-node:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: dev
+    environment:
+      - MONGODB_URL='mongodb://app-mongo:27017/default'
+    ports:
+      - "5000:5000"
+
+  app-mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.57.0.0/16
