@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:6-alpine'
+            image 'adrianokowalski/npm-agent:1.0.0'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
