@@ -2,13 +2,13 @@ pipeline {
     agent {
         docker {
             image 'adrianokowalski/npm-agent:1.0.1'
-            args '-v /var/run/docker.sock:/var/run/docker.sock -v /fs/npm:/fs/npm'
+            args '-v /var/run/docker.sock:/var/run/docker.sock -u jenkins:docker -v /fs/jenkins/npm:/fs/jenkins/npm'
         }
     }
     stages {
         stage('Build') {
             steps {
-                sh 'npm install --cache /fs/npm'
+                sh 'npm install --cache /fs/jenkins/npm'
             }
         }
     }
