@@ -6,6 +6,6 @@ WORKDIR /app
 
 COPY ./ .
 
-RUN npm install
+RUN npm install --cache /fs/npm
 
 CMD [ "pm2-runtime", "npm", "--", "start" ]
